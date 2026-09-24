@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+</tool_call>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATTA · Trabajos Técnicos en Altura</title>
+<meta name="description" content="ATTA: trabajos técnicos en altura, acceso por cuerdas, mantenimiento y seguridad operacional en la zona central de Chile.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/oswald@latest/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/oswald@latest/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/oswald@latest/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/oswald@latest/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/montserrat@latest/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/caveat@latest/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/caveat@latest/700.css">
+<style>
+:root{
+  --naranja:#f7941d;
+  --naranja-2:#ffb347;
+  --naranja-osc:#c96a00;
+  --negro:#0b0c0e;
+  --panel:#14161a;
+  --panel2:#1b1e24;
+  --linea:#2a2e36;
+  --texto:#f2f3f5;
+  --gris:#a6adb8;
+  --f-disp:'Oswald',Impact,sans-serif;
+  --f-body:'Montserrat',Segoe UI,sans-serif;
+  --f-script:'Caveat',cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{background:var(--negro);color:var(--texto);font-family:var(--f-body);font-size:16px;line-height:1.65;overflow-x:hidden}
+::selection{background:var(--naranja);color:#0b0c0e}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{width:min(1200px,92%);margin:0 auto}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .35s,box-shadow .35s;background:linear-gradient(180deg,rgba(8,9,11,.85),rgba(8,9,11,0))}
+.nav.solid{background:rgba(11,12,14,.96);box-shadow:0 6px 24px rgba(0,0,0,.45);backdrop-filter:blur(8px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-brand .logo-svg{width:46px;height:46px}.brand-lockup{display:block;width:178px;height:64px;object-fit:contain;object-position:center}.foot-brand .brand-lockup{width:250px;height:104px}
+.nav-brand b{font-family:var(--f-disp);font-weight:600;letter-spacing:.12em;font-size:15px;text-transform:uppercase;line-height:1.2}
+.nav-brand b span{color:var(--naranja);display:block;font-size:11px;letter-spacing:.3em}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-family:var(--f-disp);font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:#cfd4db;position:relative;padding:6px 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--naranja);transition:width .3s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-tel{display:flex;align-items:center;gap:9px;background:var(--naranja);color:#0b0c0e;font-weight:700;font-size:14px;padding:10px 18px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:filter .25s}
+.nav-tel:hover{filter:brightness(1.12)}
+.nav-tel svg{width:16px;height:16px}
+.burger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px}
+.burger span{display:block;width:24px;height:2px;background:var(--naranja);margin:5px auto;transition:.3s}
+.menu-mov{display:none;position:fixed;top:70px;left:0;right:0;z-index:89;background:rgba(11,12,14,.98);border-bottom:1px solid var(--linea);padding:18px 0}
+.menu-mov a{display:block;padding:12px 6%;font-family:var(--f-disp);letter-spacing:.18em;text-transform:uppercase;font-size:15px;border-left:3px solid transparent}
+.menu-mov a:hover{border-left-color:var(--naranja);color:var(--naranja)}
+.menu-mov.open{display:block}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden}
+.hero-escena{position:absolute;inset:0;width:100%;height:100%}
+.hero-escena svg{width:100%;height:100%}.hero-escena{opacity:.22;transition:opacity .7s ease}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.94) 0%,rgba(8,9,11,.78) 42%,rgba(8,9,11,.28) 75%,rgba(8,9,11,.45) 100%)}
+.esquina{position:absolute;width:230px;height:230px;z-index:3;pointer-events:none}
+.esquina-tl{top:0;left:0;clip-path:polygon(0 0,100% 0,0 100%);background:linear-gradient(135deg,var(--naranja) 0 44%,#15181d 44% 58%,var(--naranja) 58% 100%)}
+.esquina-br{bottom:0;right:0;clip-path:polygon(100% 100%,100% 0,0 100%);background:linear-gradient(315deg,var(--naranja) 0 44%,#15181d 44% 58%,var(--naranja) 58% 100%)}
+.hero-in{position:relative;z-index:4;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-disp);font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--naranja-2)}
+.kicker::before{content:'';width:34px;height:2px;background:var(--naranja)}
+.hero h1{font-family:var(--f-disp);font-weight:700;text-transform:uppercase;line-height:1.02;margin:18px 0 6px;font-size:clamp(38px,5.4vw,68px);letter-spacing:.015em}
+.hero h1 .apellido{display:flex;align-items:center;gap:18px;color:var(--naranja);letter-spacing:.22em;font-size:clamp(24px,3.2vw,42px)}
+.hero h1 .apellido::before,.hero h1 .apellido::after{content:'';height:3px;background:var(--naranja);flex:0 0 44px}
+.hero h1 .cargo{display:block;font-size:clamp(15px,1.6vw,21px);letter-spacing:.5em;color:#e8eaee;font-weight:500;margin-top:10px}
+.tagline{font-family:var(--f-script);font-size:clamp(24px,2.6vw,32px);color:var(--naranja-2);margin:14px 0 4px;transform:rotate(-1.5deg)}
+.tagline u{text-decoration:none;position:relative}
+.tagline u::after{content:'';position:absolute;left:0;right:-6px;bottom:-4px;height:3px;background:var(--naranja);border-radius:3px;transform:rotate(-1deg)}
+.hero p.lead{color:#c9ced6;max-width:54ch;margin:16px 0 28px;font-size:16.5px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-disp);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:14px;padding:15px 30px;cursor:pointer;border:0;transition:transform .25s,filter .25s,background .25s;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.btn svg{width:18px;height:18px}
+.btn-n{background:var(--naranja);color:#0b0c0e}
+.btn-n:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.btn-g{background:transparent;color:var(--texto);box-shadow:inset 0 0 0 2px var(--naranja)}
+.btn-g:hover{background:rgba(247,148,29,.14);transform:translateY(-2px)}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}.hero-carousel{position:relative;z-index:4;width:100%;min-height:590px;display:grid;align-items:center}.hero-track{display:grid}.hero-slide{grid-area:1/1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;opacity:0;pointer-events:none;transform:translateX(26px);transition:opacity .7s ease,transform .7s ease}.hero-slide.act{opacity:1;pointer-events:auto;transform:none}.hero-slide h1{font-family:var(--f-disp);font-weight:700;text-transform:uppercase;line-height:.92;margin:18px 0 10px;font-size:clamp(54px,8vw,104px);letter-spacing:.045em}.hero-slide h1 span{display:block;color:var(--naranja);font-size:clamp(18px,2vw,27px);letter-spacing:.42em;font-weight:500;margin-top:15px}.hero-copy{max-width:58ch}.hero-copy .lead{color:#c9ced6;margin:16px 0 28px;font-size:16.5px}.hero-panel-title{font-family:var(--f-disp);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--naranja);margin-bottom:12px}.hero-dots{position:absolute;bottom:46px;left:max(4%,calc((100% - 1200px)/2));z-index:6;display:flex;gap:10px}.hero-dot{width:34px;height:4px;border:0;background:#777d86;cursor:pointer;transition:.25s}.hero-dot.act{background:var(--naranja);width:58px}.hero-index{position:absolute;right:max(4%,calc((100% - 1200px)/2));bottom:39px;z-index:6;font-family:var(--f-disp);letter-spacing:.2em;color:#dfe3e8}.hero-index b{color:var(--naranja);font-size:25px}@media(max-width:900px){.hero-slide{grid-template-columns:1fr;gap:24px}.hero-carousel{min-height:710px}.hero-slide h1{font-size:clamp(50px,15vw,82px)}.hero-dots{bottom:20px}.hero-index{bottom:14px}}
+/* tarjeta lateral estilo credencial */
+.tarjeta{background:rgba(15,17,21,.86);border:1px solid var(--linea);backdrop-filter:blur(6px);padding:30px 28px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.tarjeta::before{content:'';position:absolute;top:0;left:0;width:64px;height:6px;background:var(--naranja)}
+.fila-serv{display:flex;align-items:center;gap:16px;padding:14px 0}
+.fila-serv + .fila-serv{border-top:1px dashed rgba(247,148,29,.25)}
+.ico-circ{flex:0 0 52px;width:52px;height:52px;border:2px solid var(--naranja);border-radius:50%;display:grid;place-items:center;color:var(--naranja)}
+.ico-circ svg{width:26px;height:26px}
+.barra-n{width:3px;align-self:stretch;background:var(--naranja);border-radius:2px}
+.fila-serv b{font-size:15.5px;font-weight:600;line-height:1.35}
+.tarjeta-pie{margin-top:18px;border-top:1px solid var(--linea);padding-top:18px;display:grid;gap:10px}
+.dato{display:flex;align-items:center;gap:12px;font-size:14.5px;color:#d7dbe1}
+.dato svg{width:18px;height:18px;color:var(--naranja);flex:0 0 18px}
+.dato b{font-size:17px;color:#fff;letter-spacing:.04em}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:4;color:var(--naranja);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-family:var(--f-disp);display:grid;justify-items:center;gap:6px}
+.scroll-hint i{width:2px;height:34px;background:linear-gradient(var(--naranja),transparent);animation:caer 1.6s infinite}
+@keyframes caer{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--naranja);color:#0b0c0e;overflow:hidden;transform:rotate(-1.1deg) scale(1.01);margin:26px 0;box-shadow:0 10px 34px rgba(247,148,29,.25)}
+.marquee-in{display:flex;width:max-content;animation:desfila 26s linear infinite;padding:12px 0}
+.marquee span{font-family:var(--f-disp);font-weight:600;letter-spacing:.24em;text-transform:uppercase;font-size:14px;padding:0 22px;white-space:nowrap}
+.marquee span i{font-style:normal;color:#5c3300}
+@keyframes desfila{to{transform:translateX(-50%)}}
+
+/* ---------- SECCIONES ---------- */
+section{position:relative}
+.sec{padding:88px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--f-disp);font-weight:700;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);letter-spacing:.03em;line-height:1.1}
+.sec-head h2 em{font-style:normal;color:var(--naranja)}
+.sec-head p{color:var(--gris);max-width:52ch;font-size:15px}
+.raya{width:70px;height:4px;background:var(--naranja);margin-top:14px;clip-path:polygon(0 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+
+/* ---------- CARRUSEL SERVICIOS ---------- */
+#carruselServ{position:relative}
+.ventana{overflow:hidden;border:1px solid var(--linea);background:var(--panel)}
+.pista{display:flex;transition:transform .65s cubic-bezier(.22,.61,.36,1)}
+.slide-serv{min-width:100%;display:grid;grid-template-columns:.85fr 1.15fr}
+.slide-ilus{position:relative;background:var(--panel2);display:grid;place-items:center;min-height:460px;overflow:hidden}.serv-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(.82) contrast(1.08)}.slide-ilus::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,9,11,.18),rgba(8,9,11,.52));z-index:1}.slide-ilus::before{z-index:2}.slide-ilus svg.grande{z-index:3;opacity:0}.num-slide{z-index:4}
+.slide-ilus::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 44px),repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 44px)}
+.slide-ilus svg.grande{width:min(240px,58%);height:auto;color:var(--naranja);position:relative;filter:drop-shadow(0 14px 30px rgba(247,148,29,.28))}
+.num-slide{position:absolute;top:14px;left:20px;font-family:var(--f-disp);font-weight:700;font-size:76px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(247,148,29,.5)}
+.num-slide small{font-size:20px;-webkit-text-stroke:1px rgba(255,255,255,.4);color:transparent}
+.slide-cuerpo{padding:48px 52px}
+.slide-cuerpo h3{font-family:var(--f-disp);font-weight:600;text-transform:uppercase;font-size:clamp(22px,2.4vw,32px);letter-spacing:.05em}
+.slide-sub{color:var(--naranja);font-family:var(--f-disp);letter-spacing:.22em;text-transform:uppercase;font-size:13px;margin:6px 0 14px}
+.slide-cuerpo p{color:#c4c9d1;font-size:15.5px;margin-bottom:20px}
+.checks li{display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-size:15px;color:#dfe3e8}
+.checks svg{width:18px;height:18px;color:var(--naranja);flex:0 0 18px;margin-top:3px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.chip{font-family:var(--f-disp);font-size:12px;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(247,148,29,.55);color:var(--naranja-2);padding:6px 14px;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+.ctrl-lat{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border-radius:50%;border:2px solid var(--naranja);background:rgba(11,12,14,.8);color:var(--naranja);display:grid;place-items:center;cursor:pointer;transition:.25s}
+.ctrl-lat:hover{background:var(--naranja);color:#0b0c0e}
+.ctrl-lat svg{width:22px;height:22px}
+.ctrl-lat.prev{left:-26px}
+.ctrl-lat.next{right:-26px}
+.ctrl-pie{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:26px}
+.puntos{display:flex;gap:10px}
+.punto{width:12px;height:12px;border-radius:50%;border:2px solid var(--naranja);background:transparent;cursor:pointer;padding:0;transition:.25s}
+.punto.act{background:var(--naranja);transform:scale(1.25)}
+.contador{font-family:var(--f-disp);letter-spacing:.2em;color:var(--gris);font-size:14px}
+.contador b{color:var(--naranja)}
+
+/* ---------- CARRUSEL CLIENTES ---------- */
+.sec-clientes{background:linear-gradient(180deg,var(--panel) 0%,var(--negro) 100%);border-block:1px solid var(--linea)}
+.ventana-cli{overflow:hidden}
+.pista-cli{display:flex;transition:transform .6s cubic-bezier(.22,.61,.36,1);gap:0}
+.tarj-cli{padding:14px}
+.tarj-cli-in{background:var(--panel2);border:1px solid var(--linea);border-top:4px solid var(--naranja);padding:30px 26px;height:100%;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.tarj-cli-in:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(0,0,0,.5)}
+.tarj-cli-in::after{content:'';position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;background:radial-gradient(circle,rgba(247,148,29,.18),transparent 70%)}
+.tarj-cli .ico-circ{margin-bottom:16px}
+.tarj-cli h4{font-family:var(--f-disp);text-transform:uppercase;letter-spacing:.08em;font-size:19px;margin-bottom:8px}
+.tarj-cli p{color:var(--gris);font-size:14px}
+.ctrl-cli{display:flex;gap:12px}
+.ctrl-cli button{width:44px;height:44px;border-radius:50%;border:2px solid var(--naranja);background:transparent;color:var(--naranja);cursor:pointer;display:grid;place-items:center;transition:.25s}
+.ctrl-cli button:hover{background:var(--naranja);color:#0b0c0e}
+.ctrl-cli svg{width:18px;height:18px}
+.puntos-cli{display:flex;gap:9px;justify-content:center;margin-top:20px}
+
+/* ---------- RESPALDO ---------- */
+.grid-resp{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card-resp{background:var(--panel);border:1px solid var(--linea);padding:32px 28px;position:relative;overflow:hidden}
+.card-resp::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--naranja),transparent)}
+.card-resp .ico-circ{margin-bottom:18px}
+.card-resp h4{font-family:var(--f-disp);text-transform:uppercase;letter-spacing:.08em;font-size:20px;margin-bottom:8px}
+.card-resp > p{color:var(--gris);font-size:14px;margin-bottom:16px}
+.banda-chips{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;border:1px dashed rgba(247,148,29,.4);padding:18px;background:rgba(247,148,29,.05)}
+
+/* ---------- TIEMPOS ---------- */
+.sec-tiempos{background:radial-gradient(circle at 80% 20%,rgba(247,148,29,.12),transparent 55%),var(--panel);border-block:1px solid var(--linea)}
+.grid-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stat{ text-align:center;padding:30px 16px;border:1px solid var(--linea);background:var(--negro);position:relative}
+.stat b{font-family:var(--f-disp);font-weight:700;font-size:clamp(34px,3.6vw,50px);color:var(--naranja);line-height:1}
+.stat b small{font-size:.45em;letter-spacing:.08em}
+.stat span{display:block;margin-top:10px;color:var(--gris);font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--f-disp)}
+.noche{margin-top:26px;display:flex;align-items:center;gap:18px;background:linear-gradient(90deg,rgba(247,148,29,.16),transparent);border-left:4px solid var(--naranja);padding:20px 24px}
+.noche svg{width:34px;height:34px;color:var(--naranja);flex:0 0 34px}
+.noche b{font-family:var(--f-disp);letter-spacing:.14em;text-transform:uppercase;font-size:17px}
+.noche p{color:#c9ced6;font-size:14.5px}
+
+/* ---------- CONTACTO ---------- */
+.sec-contacto{overflow:hidden}
+.grid-cont{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.lineas-cont{display:grid;gap:18px;margin:26px 0}
+.linea-cont{display:flex;gap:16px;align-items:flex-start}
+.linea-cont .ico-circ{flex:0 0 48px;width:48px;height:48px}
+.linea-cont b{display:block;font-family:var(--f-disp);letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--gris)}
+.linea-cont span{font-size:16.5px;color:#e8eaee}
+.linea-cont a span:hover{color:var(--naranja-2)}
+.form-cont{background:var(--panel);border:1px solid var(--linea);padding:36px 32px;position:relative}
+.form-cont::before{content:'';position:absolute;top:0;right:0;width:70px;height:6px;background:var(--naranja)}
+.form-cont h3{font-family:var(--f-disp);text-transform:uppercase;letter-spacing:.1em;font-size:22px;margin-bottom:6px}
+.form-cont > p{color:var(--gris);font-size:14px;margin-bottom:22px}
+.campo{margin-bottom:16px}
+.campo label{display:block;font-family:var(--f-disp);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--naranja-2);margin-bottom:7px}
+.campo input,.campo select,.campo textarea{width:100%;background:var(--negro);border:1px solid var(--linea);color:var(--texto);font-family:var(--f-body);font-size:15px;padding:13px 14px;outline:none;transition:border .25s}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--naranja)}
+.campo textarea{resize:vertical;min-height:96px}
+.form-nota{margin-top:14px;font-size:12.5px;color:var(--gris)}
+
+/* ---------- FOOTER ---------- */
+footer{background:#08090b;border-top:1px solid var(--linea);padding:56px 0 26px;position:relative;overflow:hidden}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+.foot-brand{display:flex;gap:14px;align-items:center}
+.foot-brand .logo-svg{width:56px;height:56px}
+.foot-brand b{font-family:var(--f-disp);letter-spacing:.1em;text-transform:uppercase;font-size:17px;line-height:1.25}
+.foot-brand b span{color:var(--naranja);display:block;letter-spacing:.28em;font-size:12px}
+.foot-tag{font-family:var(--f-script);color:var(--naranja-2);font-size:22px;margin-top:14px;transform:rotate(-1.5deg)}
+.foot-col h5{font-family:var(--f-disp);letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--naranja);margin-bottom:16px}
+.foot-col a,.foot-col span{display:block;color:#b9bfc8;font-size:14px;padding:5px 0}
+.foot-col a:hover{color:var(--naranja-2)}
+.foot-fin{margin-top:40px;border-top:1px solid var(--linea);padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#7d838d;font-size:12.5px}
+.foot-mont{position:absolute;right:-40px;bottom:-30px;opacity:.08;width:340px;color:#fff;pointer-events:none}
+
+/* ---------- WSP FLOTANTE ---------- */
+.wsp-flot{position:fixed;right:22px;bottom:22px;z-index:95;width:60px;height:60px;border-radius:50%;background:var(--naranja);display:grid;place-items:center;color:#0b0c0e;box-shadow:0 12px 30px rgba(247,148,29,.45);transition:transform .25s}
+.wsp-flot:hover{transform:scale(1.08)}
+.wsp-flot svg{width:30px;height:30px}
+.wsp-flot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(247,148,29,.5);animation:pulso 2s infinite}
+@keyframes pulso{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.35);opacity:0}}
+
+/* ---------- REVEAL ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rev.vis{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1080px){
+  .ctrl-lat.prev{left:8px}.ctrl-lat.next{right:8px}
+  .grid-resp{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:block}
+  .hero-in{grid-template-columns:1fr;gap:38px}
+  .slide-serv{grid-template-columns:1fr}
+  .slide-ilus{min-height:300px}
+  .slide-cuerpo{padding:34px 28px}
+  .grid-stats{grid-template-columns:1fr 1fr}
+  .grid-cont{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:26px}
+}
+@media(max-width:640px){
+  .grid-resp{grid-template-columns:1fr}
+  .ctrl-lat{display:none}
+  .esquina{width:150px;height:150px}
+  .sec{padding:64px 0}
+}
+/* ---------- MOVIMIENTO ATTA ---------- */
+.hero{background-attachment:fixed;transition:background-position .18s ease}.hero-escena{transform:translate3d(0,var(--hero-shift,0px),0) scale(1.04);will-change:transform}.hero::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.16;background-image:radial-gradient(rgba(255,255,255,.34) .6px,transparent .7px);background-size:5px 5px;mix-blend-mode:soft-light}.hero-slide.act .hero-copy{animation:subeHero .8s cubic-bezier(.22,.61,.36,1) both}.hero-slide.act .tarjeta{animation:entraPanel .9s .12s cubic-bezier(.22,.61,.36,1) both}@keyframes subeHero{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@keyframes entraPanel{from{opacity:0;transform:translateX(34px) rotate(.8deg)}to{opacity:1;transform:none}}.serv-foto{transition:transform 6.5s cubic-bezier(.15,.7,.2,1),filter .6s ease}.slide-serv:has(.serv-foto) .serv-foto{transform:scale(1.01)}.slide-serv:has(.serv-foto) .serv-foto:hover{transform:scale(1.08);filter:saturate(1.02) contrast(1.12)}.tarj-cli-in,.card-resp,.stat{transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .35s}.card-resp:hover,.stat:hover{transform:translateY(-7px);border-color:rgba(247,148,29,.65);box-shadow:0 20px 42px rgba(0,0,0,.35)}.btn{position:relative;overflow:hidden}.btn::before{content:"";position:absolute;inset:0;transform:translateX(-115%) skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.32),transparent);transition:transform .6s ease}.btn:hover::before{transform:translateX(115%) skewX(-18deg)}.kicker{animation:brillo 3.8s ease-in-out infinite}@keyframes brillo{50%{filter:drop-shadow(0 0 8px rgba(247,148,29,.5))}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.hero{background-attachment:scroll}.hero-escena{transform:none!important}}.parallax-sec{isolation:isolate;overflow:hidden}.parallax-sec::after{content:"";position:absolute;inset:-12% 0;z-index:-1;pointer-events:none;transform:translate3d(0,var(--section-shift,0px),0);will-change:transform;background:radial-gradient(ellipse at 84% 28%,rgba(247,148,29,.15),transparent 38%),linear-gradient(115deg,transparent 0 62%,rgba(255,255,255,.025) 62% 63%,transparent 63% 100%)}.sec-clientes::after{background:radial-gradient(ellipse at 12% 42%,rgba(247,148,29,.13),transparent 36%),radial-gradient(ellipse at 92% 74%,rgba(247,148,29,.08),transparent 34%)}.sec-tiempos::after{background:radial-gradient(ellipse at 78% 20%,rgba(247,148,29,.18),transparent 42%)}.slide-ilus{background-position:center var(--photo-shift,50%)}@media(prefers-reduced-motion:reduce){.parallax-sec::after{transform:none!important}}/* ---------- PARALLAX VISIBLE ---------- */
+.parallax-sec::after{z-index:0!important;opacity:.9}.parallax-sec>.wrap{position:relative;z-index:1}.slide-ilus .serv-foto{transform:scale(1.12) translate3d(0,var(--photo-parallax,0px),0)!important;will-change:transform}.slide-ilus::after,.slide-ilus::before,.slide-ilus .num-slide,.slide-ilus svg{pointer-events:none}.parallax-sec .sec-head{transform:translate3d(0,var(--head-parallax,0px),0);will-change:transform}/* La fotografía es la capa que se mueve */
+.slide-ilus .serv-foto{z-index:2!important;transform:scale(1.18) translate3d(0,var(--photo-parallax,0px),0)!important;transition:transform .12s linear,filter .3s ease!important}.slide-ilus::before{z-index:3!important}.slide-ilus::after{z-index:4!important}.slide-ilus .num-slide{z-index:5!important}.slide-ilus svg.grande{z-index:5!important}/* Parallax real: fotografía independiente en cada sección */
+.parallax-sec::after{display:none!important}.section-parallax-media{position:absolute;inset:-15% 0;width:100%;height:130%;object-fit:cover;object-position:center;z-index:0;opacity:.13;filter:grayscale(.35) saturate(.8) contrast(1.15);transform:translate3d(0,var(--media-parallax,0px),0) scale(1.08);will-change:transform;pointer-events:none}.sec-clientes .section-parallax-media{opacity:.11}.sec-contacto .section-parallax-media{opacity:.16}@media(max-width:700px){.section-parallax-media{opacity:.09!important}}</style>
+</head>
+<body>
+
+<!-- ============ SIMBOLOS SVG ============ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="sym-logo" viewBox="0 0 120 120">
+    <path d="M18 44 A44 44 0 0 1 102 44" fill="none" stroke="#f7941d" stroke-width="9" stroke-linecap="round"/>
+    <path d="M14 96 L44 48 L58 68 L74 38 L106 96 Z" fill="#f2f3f5"/>
+    <path d="M44 48 L52 60 L46 62 L58 68 L74 38 L82 52 L74 56 L84 66 L106 96 L60 96 Z" fill="#c8ccd2"/>
+    <path d="M74 38 L80 46 L72 50 Z" fill="#ffffff"/>
+    <circle cx="92" cy="52" r="6" fill="#f2f3f5"/>
+    <path d="M92 58 L90 74 L96 82 M90 74 L84 84 M92 62 L84 56 M92 62 L99 50" stroke="#f2f3f5" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M99 50 L99 26" stroke="#f7941d" stroke-width="2.6"/>
+  </symbol>
+  <symbol id="sym-altura" viewBox="0 0 64 64">
+    <path d="M40 4 V26" stroke="currentColor" stroke-width="2.6"/>
+    <circle cx="34" cy="30" r="5.4" fill="none" stroke="currentColor" stroke-width="2.6"/>
+    <path d="M34 36 L32 47 M32 47 L25 57 M32 47 L37 58 M34 39 L40 28 M34 40 L26 44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M28 41 L36 44" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M8 12 H20 M8 20 H16 M8 28 H18" stroke="currentColor" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-copa" viewBox="0 0 64 64">
+    <path d="M14 22 Q32 8 50 22 V34 Q32 46 14 34 Z" fill="none" stroke="currentColor" stroke-width="2.8"/>
+    <path d="M20 40 L16 58 M44 40 L48 58 M32 44 V58 M16 58 H48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M32 22 c4 5 6 8 6 11 a6 6 0 0 1 -12 0 c0 -3 2 -6 6 -11 z" fill="currentColor"/>
+  </symbol>
+  <symbol id="sym-anticaidas" viewBox="0 0 64 64">
+    <path d="M32 6 L52 13 V28 C52 41 43 50 32 57 C21 50 12 41 12 28 V13 Z" fill="none" stroke="currentColor" stroke-width="2.8"/>
+    <path d="M23 30 L29 36 L42 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-techo" viewBox="0 0 64 64">
+    <path d="M6 34 L20 22 L34 34 L48 22 L58 30" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M6 40 H26 V48 H6 Z M34 40 H54 V48 H34 Z" fill="none" stroke="currentColor" stroke-width="2.6"/>
+    <path d="M16 52 c3 4 4 6 4 8 a4 4 0 0 1 -8 0 c0 -2 1 -4 4 -8 z M44 52 c3 4 4 6 4 8 a4 4 0 0 1 -8 0 c0 -2 1 -4 4 -8 z" fill="currentColor"/>
+  </symbol>
+  <symbol id="sym-pintura" viewBox="0 0 64 64">
+    <path d="M10 12 H42 V24 H10 Z" fill="none" stroke="currentColor" stroke-width="2.8"/>
+    <path d="M42 15 H52 V30 H34 V38" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M30 38 H38 V54 H30 Z" fill="none" stroke="currentColor" stroke-width="2.8"/>
+    <path d="M14 30 v6 M22 30 v10 M30 30 v5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-estructura" viewBox="0 0 64 64">
+    <path d="M12 10 H52 M12 54 H52 M32 10 V54 M22 20 L42 32 M42 20 L22 32 M22 36 L42 48 M42 36 L22 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M50 40 l4 -3 M54 46 l5 -1 M49 48 l3 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-luminaria" viewBox="0 0 64 64">
+    <path d="M26 58 V18 M26 18 L44 10" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M44 10 L52 14 L46 20 Z" fill="currentColor"/>
+    <path d="M48 26 L54 34 M42 28 L44 38 M52 22 L60 26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M18 58 H34" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-gota" viewBox="0 0 64 64">
+    <path d="M32 6 c11 15 17 24 17 32 a17 17 0 0 1 -34 0 c0 -8 6 -17 17 -32 z" fill="none" stroke="currentColor" stroke-width="2.8"/>
+    <path d="M25 40 a7 7 0 0 0 7 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-uv" viewBox="0 0 64 64">
+    <circle cx="26" cy="30" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="38" cy="30" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="32" cy="41" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="32" cy="52" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M32 22 V12 M32 14 C40 8 46 10 50 14 C44 18 38 18 32 14 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-edificio" viewBox="0 0 64 64">
+    <path d="M16 58 V10 H40 V58 M40 26 H52 V58 M10 58 H56" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="M22 18 H26 M30 18 H34 M22 28 H26 M30 28 H34 M22 38 H26 M30 38 H34 M22 48 H26 M30 48 H34 M45 34 H48 M45 44 H48" stroke="currentColor" stroke-width="2.4"/>
+  </symbol>
+  <symbol id="sym-admin" viewBox="0 0 64 64">
+    <path d="M14 12 H50 V56 H14 Z M24 12 V8 H40 V12" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
+    <path d="M22 26 L28 32 L42 20 M22 42 H42 M22 49 H36" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-colegio" viewBox="0 0 64 64">
+    <path d="M32 14 L56 24 L32 34 L8 24 Z" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round"/>
+    <path d="M18 30 V44 C18 48 26 52 32 52 C38 52 46 48 46 44 V30 M56 24 V38" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="sym-industria" viewBox="0 0 64 64">
+    <path d="M10 56 V30 L22 38 V30 L34 38 V30 L46 38 V18 H56 V56 Z" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round"/>
+    <path d="M50 12 v-4 M46 10 v-3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M18 46 H26 M36 46 H44" stroke="currentColor" stroke-width="2.4"/>
+  </symbol>
+  <symbol id="sym-check" viewBox="0 0 24 24"><path d="M4 12.5 L9.5 18 L20 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="sym-tel" viewBox="0 0 24 24"><path d="M5 3 h4 l2 5 -3 2 c1 3 3 5 6 6 l2 -3 5 2 v4 c0 1 -1 2 -2 2 C10 21 3 14 3 5 c0 -1 1 -2 2 -2 z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="sym-pin" viewBox="0 0 24 24"><path d="M12 22 C12 22 5 15 5 10 a7 7 0 0 1 14 0 c0 5 -7 12 -7 12 z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="sym-wsp" viewBox="0 0 24 24"><path d="M12 2 a10 10 0 0 0 -8.6 15 L2 22 l5.2 -1.4 A10 10 0 1 0 12 2 z M8.5 8 c.4 -.9 .8 -.9 1.2 -.9 h1 c.3 0 .7 0 1 .8 l1 2.4 c.2 .5 0 .8 -.3 1.1 l-.7 .8 c.8 1.6 2 2.8 3.7 3.6 l.8 -.9 c.3 -.4 .7 -.5 1.1 -.3 l2.3 1.1 c.7 .3 .7 .7 .7 1 v1 c0 .4 0 .8 -.9 1.2 -1 .4 -2.2 .6 -4.4 -.3 -2.7 -1.1 -4.9 -3.3 -6.2 -6 C7.6 11 7.9 9.2 8.5 8 z" fill="currentColor"/></symbol>
+  <symbol id="sym-luna" viewBox="0 0 24 24"><path d="M20 14 A8.5 8.5 0 0 1 10 4 a8.5 8.5 0 1 0 10 10 z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 4 l.6 1.8 L19.4 6.4 l-1.8 .6 L17 8.8 l-.6 -1.8 -1.8 -.6 1.8 -.6 z" fill="currentColor"/></symbol>
+  <symbol id="sym-prev" viewBox="0 0 24 24"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="sym-next" viewBox="0 0 24 24"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="sym-mont" viewBox="0 0 120 60"><path d="M0 60 L34 14 L50 34 L70 4 L120 60 Z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="navTop">
+  <div class="wrap nav-in">
+    <a class="nav-brand" href="#inicio">
+      <img class="brand-lockup" src="atta-assets/atta-chile-logo.jpeg" alt="ATTA Chile · Asesoría Técnica y Trabajos en Altura">
+    </a>
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#respaldo">Respaldo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-tel" href="tel:+56987417915"><svg><use href="#sym-tel"/></svg>+56 9 8741 7915</a>
+    <button class="burger" id="btnBurger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu-mov" id="menuMov">
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#clientes">Clientes</a>
+  <a href="#respaldo">Respaldo</a>
+  <a href="#contacto">Contacto</a>
+  <a href="tel:+56987417915" style="color:var(--naranja)">+56 9 8741 7915</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero-escena" aria-hidden="true"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice"><defs><linearGradient id="attaSky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08090b"/><stop offset=".55" stop-color="#241506"/><stop offset="1" stop-color="#f7941d"/></linearGradient><pattern id="grid" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M70 0H0V70" fill="none" stroke="#fff" stroke-opacity=".08"/></pattern></defs><rect width="1440" height="900" fill="url(#attaSky)"/><rect width="1440" height="900" fill="url(#grid)"/><path d="M0 760L250 590l175 110 190-225 195 240 260-360 330 405v140H0z" fill="#090a0c"/><path d="M1075 0q-28 390 10 730M1120 0q-20 390 18 730" stroke="#f7941d" stroke-width="5" opacity=".8"/><circle cx="1090" cy="332" r="23" fill="#0b0c0e" stroke="#f7941d" stroke-width="5"/><path d="M1090 355l-27 84 27 102 29-102z" fill="#0b0c0e" stroke="#f7941d" stroke-width="4"/></svg></div>
+  <div class="esquina esquina-tl"></div><div class="esquina esquina-br"></div>
+  <div class="wrap hero-carousel"><div class="hero-track">
+    <article class="hero-slide act" data-image="atta-assets/hero-acceso-cuerdas.png"><div class="hero-copy"><span class="kicker">ATTA · Zona central, Chile</span><h1>ATTA<span>Trabajos técnicos en altura</span></h1><p class="tagline"><u>Seguridad que llega más alto.</u></p><p class="lead">Soluciones de acceso por cuerdas para instalaciones, mantenimiento y faenas que exigen precisión, continuidad operacional y respaldo técnico.</p><div class="hero-cta"><a class="btn btn-n" href="#contacto"><svg><use href="#sym-wsp"/></svg>Cotizar ahora</a><a class="btn btn-g" href="#servicios">Ver servicios</a></div></div><aside class="tarjeta"><p class="hero-panel-title">Especialidad ATTA / 01</p><div class="fila-serv"><span class="ico-circ"><svg><use href="#sym-altura"/></svg></span><span class="barra-n"></span><b>Acceso por cuerdas y trabajos verticales</b></div><div class="tarjeta-pie"><div class="dato"><svg><use href="#sym-tel"/></svg><b>+56 9 8741 7915</b></div><div class="dato"><svg><use href="#sym-pin"/></svg><span>San Vicente de Tagua Tagua, Chile</span></div></div></aside></article>
+    <article class="hero-slide" data-image="atta-assets/hero-anticaidas.png"><div class="hero-copy"><span class="kicker">ATTA · Prevención aplicada</span><h1>Altura<span>Sin improvisaciones</span></h1><p class="tagline"><u>Planificación antes de cada ascenso.</u></p><p class="lead">Montaje de sistemas anticaídas, inspecciones y soluciones de seguridad diseñadas para que cada intervención se realice con control y trazabilidad.</p><div class="hero-cta"><a class="btn btn-n" href="#contacto"><svg><use href="#sym-wsp"/></svg>Hablar con ATTA</a><a class="btn btn-g" href="#respaldo">Ver respaldo</a></div></div><aside class="tarjeta"><p class="hero-panel-title">Seguridad operacional / 02</p><div class="fila-serv"><span class="ico-circ"><svg><use href="#sym-anticaidas"/></svg></span><span class="barra-n"></span><b>Sistemas anticaídas y documentación técnica</b></div><div class="fila-serv"><span class="ico-circ"><svg><use href="#sym-check"/></svg></span><span class="barra-n"></span><b>Procedimientos para cada faena</b></div></aside></article>
+    <article class="hero-slide" data-image="atta-assets/hero-mantencion.png"><div class="hero-copy"><span class="kicker">ATTA · Mantenimiento especializado</span><h1>Tu faena<span>En buenas manos</span></h1><p class="tagline"><u>Resolver, mantener y proteger.</u></p><p class="lead">Limpieza de copas de agua, techumbres, canaletas, luminarias y reparación estructural, con mínima interferencia para tu operación.</p><div class="hero-cta"><a class="btn btn-n" href="#contacto"><svg><use href="#sym-wsp"/></svg>Solicitar cotización</a><a class="btn btn-g" href="#servicios">Conocer soluciones</a></div></div><aside class="tarjeta"><p class="hero-panel-title">Mantenimiento en altura / 03</p><div class="fila-serv"><span class="ico-circ"><svg><use href="#sym-copa"/></svg></span><span class="barra-n"></span><b>Copas de agua y estructuras elevadas</b></div><div class="fila-serv"><span class="ico-circ"><svg><use href="#sym-luminaria"/></svg></span><span class="barra-n"></span><b>Luminarias, techos y canaletas</b></div></aside></article>
+  </div></div><div class="hero-dots" id="heroDots" aria-label="Carrusel principal"></div><div class="hero-index"><b id="heroAct">01</b> / 03</div><div class="scroll-hint"><span>Desliza</span><i></i></div>
+</section>
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-in" id="marqueeIn">
+    <span>DEPAR <i>✦</i> MANTENER <i>✦</i> RENOVAR <i>✦</i> TRABAJOS EN ALTURA <i>✦</i> COPAS DE AGUA <i>✦</i> CANALETAS Y TECHOS <i>✦</i> SISTEMAS ANTICAÍDAS <i>✦</i> MANTENCIÓN Y PINTURA <i>✦</i> REPARACIÓN ESTRUCTURAL <i>✦</i> LUMINARIAS <i>✦</i></span>
+    <span>DEPAR <i>✦</i> MANTENER <i>✦</i> RENOVAR <i>✦</i> TRABAJOS EN ALTURA <i>✦</i> COPAS DE AGUA <i>✦</i> CANALETAS Y TECHOS <i>✦</i> SISTEMAS ANTICAÍDAS <i>✦</i> MANTENCIÓN Y PINTURA <i>✦</i> REPARACIÓN ESTRUCTURAL <i>✦</i> LUMINARIAS <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ============ SERVICIOS (CARRUSEL) ============ -->
+<section class="sec parallax-sec" id="servicios"><img class="section-parallax-media" src="atta-assets/hero-acceso-cuerdas.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="kicker">Servicios</span>
+        <h2>Soluciones en <em>altura</em></h2>
+        <div class="raya"></div>
+      </div>
+      <p>Siete líneas de servicio derivadas de nuestro plan de trabajo empresarial: reparar, mantener y renovar sin detener tu operación.</p>
+    </div>
+
+    <div id="carruselServ" class="rev">
+      <button class="ctrl-lat prev" id="servPrev" aria-label="Anterior"><svg><use href="#sym-prev"/></svg></button>
+      <button class="ctrl-lat next" id="servNext" aria-label="Siguiente"><svg><use href="#sym-next"/></svg></button>
+
+      <div class="ventana" id="ventanaServ">
+        <div class="pista" id="pistaServ">
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/hero-acceso-cuerdas.png" alt="Fotografía de servicio ATTA"><span class="num-slide">01<small>/07</small></span><svg class="grande"><use href="#sym-altura"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Trabajos en Altura</h3>
+              <div class="slide-sub">Acceso por cuerdas y descenso controlado</div>
+              <p>Intervenciones verticales en silos, torres, fachadas y estructuras sin andamios ni interrupción de faenas, con técnicos certificados y protección continua.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Acceso vertical y rapel con técnicos certificados</li>
+                <li><svg><use href="#sym-check"/></svg>Protección continua y equipo homologado</li>
+                <li><svg><use href="#sym-check"/></svg>Turnos nocturnos disponibles para no detener tu operación</li>
+              </ul>
+              <div class="chips"><span class="chip">Silos</span><span class="chip">Torres</span><span class="chip">Fachadas</span></div>
+            </div>
+          </article>
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/hero-anticaidas.png" alt="Fotografía de servicio ATTA"><span class="num-slide">02<small>/07</small></span><svg class="grande"><use href="#sym-copa"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Copas de Agua</h3>
+              <div class="slide-sub">Limpieza interior y exterior</div>
+              <p>Lavado y limpieza contenida de copas de agua metálicas y de concreto, con cumplimiento sanitario para APR, condominios e industrias.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Copas metálicas y de concreto hasta 3.8 m de diámetro</li>
+                <li><svg><use href="#sym-check"/></svg>Limpieza contenida y manejo de residuos</li>
+                <li><svg><use href="#sym-check"/></svg>Desinfección interior y exterior con registro documentado</li>
+              </ul>
+              <div class="chips"><span class="chip">Metal</span><span class="chip">Concreto</span><span class="chip">APR</span></div>
+            </div>
+          </article>
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/servicio-copa-agua.png" alt="Fotografía de servicio ATTA"><span class="num-slide">03<small>/07</small></span><svg class="grande"><use href="#sym-anticaidas"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Sistemas Anticaídas</h3>
+              <div class="slide-sub">Montaje y certificación</div>
+              <p>Instalación de puntos de anclaje, líneas de vida y protecciones colectivas con resguardo legal completo para tu faena.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Puntos de anclaje y líneas de vida certificadas</li>
+                <li><svg><use href="#sym-check"/></svg>Plan de Prevención de Riesgos (PPR) al día</li>
+                <li><svg><use href="#sym-check"/></svg>Convenio mutual y capacitación interna vigente</li>
+              </ul>
+              <div class="chips"><span class="chip">Anclajes</span><span class="chip">Líneas de vida</span><span class="chip">PPR</span></div>
+            </div>
+          </article>
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/servicio-techumbres.png" alt="Fotografía de servicio ATTA"><span class="num-slide">04<small>/07</small></span><svg class="grande"><use href="#sym-techo"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Canaletas y Techos</h3>
+              <div class="slide-sub">Reparar · Mantener · Renovar</div>
+              <p>Prolongamos la vida útil de tu cubierta con soldaduras líquidas, pinturas de revestimiento, reemplazo de uniones y limpieza química.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Soldaduras líquidas y pintura de revestimiento</li>
+                <li><svg><use href="#sym-check"/></svg>Reemplazo de uniones y tramos de canaletas</li>
+                <li><svg><use href="#sym-check"/></svg>Limpieza química de canaletas y techos</li>
+              </ul>
+              <div class="chips"><span class="chip">Canaletas</span><span class="chip">Techos</span><span class="chip">Uniones</span></div>
+            </div>
+          </article>
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/hero-mantencion.png" alt="Fotografía de servicio ATTA"><span class="num-slide">05<small>/07</small></span><svg class="grande"><use href="#sym-pintura"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Mantención y Pintura</h3>
+              <div class="slide-sub">Pintura estructural en altura</div>
+              <p>Protección anticorrosiva y recubrimiento de estructuras metálicas y de concreto, sin andamios y sin detener la operación del recinto.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Protección anticorrosiva de estructuras metálicas</li>
+                <li><svg><use href="#sym-check"/></svg>Pintura de fachadas, muros y superficies en altura</li>
+                <li><svg><use href="#sym-check"/></svg>Mantención preventiva programada</li>
+              </ul>
+              <div class="chips"><span class="chip">Metal</span><span class="chip">Concreto</span><span class="chip">Fachadas</span></div>
+            </div>
+          </article>
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/hero-acceso-cuerdas.png" alt="Fotografía de servicio ATTA"><span class="num-slide">06<small>/07</small></span><svg class="grande"><use href="#sym-estructura"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Reparación Estructural</h3>
+              <div class="slide-sub">Refuerzo y modificación de PPR</div>
+              <p>Reparaciones estructurales, refuerzo de elementos y actualización del Plan de Prevención de Riesgos según normativa vigente.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Refuerzos y soldaduras certificadas en acero</li>
+                <li><svg><use href="#sym-check"/></svg>Diagnóstico de patologías estructurales en altura</li>
+                <li><svg><use href="#sym-check"/></svg>Modificación de PPR según normativa vigente</li>
+              </ul>
+              <div class="chips"><span class="chip">Acero</span><span class="chip">Soldadura</span><span class="chip">PPR</span></div>
+            </div>
+          </article>
+
+          <article class="slide-serv">
+            <div class="slide-ilus"><img class="serv-foto" src="atta-assets/servicio-luminarias.png" alt="Fotografía de servicio ATTA"><span class="num-slide">07<small>/07</small></span><svg class="grande"><use href="#sym-luminaria"/></svg></div>
+            <div class="slide-cuerpo">
+              <h3>Luminarias</h3>
+              <div class="slide-sub">Hasta 25 m de altura</div>
+              <p>Mantención, recambio y limpieza de luminarias de gran altura en postes, bodegas y estadios, sin equipos pesados ni cortes prolongados.</p>
+              <ul class="checks">
+                <li><svg><use href="#sym-check"/></svg>Recambio de luminarias LED de gran altura</li>
+                <li><svg><use href="#sym-check"/></svg>Limpieza e inspección en altura de cuerpos de luz</li>
+                <li><svg><use href="#sym-check"/></svg>Seguridad eléctrica y reporte técnico por intervención</li>
+              </ul>
+              <div class="chips"><span class="chip">25 m</span><span class="chip">LED</span><span class="chip">Bodegas</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="ctrl-pie">
+        <div class="puntos" id="puntosServ"></div>
+        <div class="contador"><b id="servAct">01</b> / <span id="servTot">07</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES (CARRUSEL) ============ -->
+<section class="sec sec-clientes parallax-sec" id="clientes"><img class="section-parallax-media" src="atta-assets/servicio-copa-agua.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="kicker">Clientes</span>
+        <h2>Quienes confían <em>en altura</em></h2>
+        <div class="raya"></div>
+      </div>
+      <div class="ctrl-cli">
+        <button id="cliPrev" aria-label="Anterior"><svg><use href="#sym-prev"/></svg></button>
+        <button id="cliNext" aria-label="Siguiente"><svg><use href="#sym-next"/></svg></button>
+      </div>
+    </div>
+
+    <div class="ventana-cli rev" id="ventanaCli">
+      <div class="pista-cli" id="pistaCli">
+        <div class="tarj-cli"><div class="tarj-cli-in">
+          <span class="ico-circ"><svg><use href="#sym-gota"/></svg></span>
+          <h4>APR y Comités de Agua</h4>
+          <p>Sistemas de agua potable rural: limpieza y mantención de copas y estanques de distribución con cumplimiento sanitario.</p>
+        </div></div>
+        <div class="tarj-cli"><div class="tarj-cli-in">
+          <span class="ico-circ"><svg><use href="#sym-uv"/></svg></span>
+          <h4>Viñas y Viñedos</h4>
+          <p>Estanques, silos y estructuras altas que exigen trabajo vertical certificado durante todo el año productivo.</p>
+        </div></div>
+        <div class="tarj-cli"><div class="tarj-cli-in">
+          <span class="ico-circ"><svg><use href="#sym-edificio"/></svg></span>
+          <h4>Condominios</h4>
+          <p>Edificios habitacionales: copas de agua, techos, canaletas y luminarias con mínima interferencia para los residentes.</p>
+        </div></div>
+        <div class="tarj-cli"><div class="tarj-cli-in">
+          <span class="ico-circ"><svg><use href="#sym-admin"/></svg></span>
+          <h4>Administraciones de Edificios</h4>
+          <p>Mantención integral con resguardo legal, PPR al día y reporte documental por cada intervención.</p>
+        </div></div>
+        <div class="tarj-cli"><div class="tarj-cli-in">
+          <span class="ico-circ"><svg><use href="#sym-colegio"/></svg></span>
+          <h4>Colegios</h4>
+          <p>Intervenciones seguras programadas fuera del horario clases, con protección de patios y techumbres.</p>
+        </div></div>
+        <div class="tarj-cli"><div class="tarj-cli-in">
+          <span class="ico-circ"><svg><use href="#sym-industria"/></svg></span>
+          <h4>Industrias y Bodegas</h4>
+          <p>Plantas y bodegas de químicos que requieren trabajo en altura con almacenamiento y protocolos compliant.</p>
+        </div></div>
+      </div>
+    </div>
+    <div class="puntos-cli" id="puntosCli"></div>
+  </div>
+</section>
+
+<!-- ============ RESPALDO ============ -->
+<section class="sec parallax-sec" id="respaldo"><img class="section-parallax-media" src="atta-assets/hero-anticaidas.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="kicker">Responsabilidad Empresarial</span>
+        <h2>Respaldo y <em>certidumbre</em></h2>
+        <div class="raya"></div>
+      </div>
+      <p>Estructura empresarial organizada: cada proyecto cuenta con responsabilidad técnica, documental y legal verificable.</p>
+    </div>
+
+    <div class="grid-resp">
+      <div class="card-resp rev">
+        <span class="ico-circ"><svg><use href="#sym-edificio"/></svg></span>
+        <h4>Estructura Empresarial</h4>
+        <p>Empresa organizada con procesos definidos y responsabilidad técnica en cada proyecto.</p>
+        <ul class="checks">
+          <li><svg><use href="#sym-check"/></svg>Certificado de físico de altura vigente por técnico</li>
+          <li><svg><use href="#sym-check"/></svg>Giro empresarial exclusivo de trabajo en altura</li>
+          <li><svg><use href="#sym-check"/></svg>Bodega de químicos con almacenamiento reglamentado</li>
+          <li><svg><use href="#sym-check"/></svg>Convenio mutual vigente</li>
+        </ul>
+      </div>
+      <div class="card-resp rev">
+        <span class="ico-circ"><svg><use href="#sym-anticaidas"/></svg></span>
+        <h4>Resguardo Legal</h4>
+        <p>Cada intervención queda documentada bajo el plan de prevención de riesgos vigente.</p>
+        <ul class="checks">
+          <li><svg><use href="#sym-check"/></svg>PPR: Plan de Prevención de Riesgos al día</li>
+          <li><svg><use href="#sym-check"/></svg>Seguro de responsabilidad civil (RC Exp)</li>
+          <li><svg><use href="#sym-check"/></svg>Documentación contable y laboral al día</li>
+          <li><svg><use href="#sym-check"/></svg>Certificaciones técnicas LEGT · EC · T.D</li>
+        </ul>
+      </div>
+      <div class="card-resp rev">
+        <span class="ico-circ"><svg><use href="#sym-admin"/></svg></span>
+        <h4>Capacitación y Gestión</h4>
+        <p>Formación interna continua y gestión técnica con software y programa de trabajo escrito.</p>
+        <ul class="checks">
+          <li><svg><use href="#sym-check"/></svg>Capacitación interna basada en decretos supremos (DS)</li>
+          <li><svg><use href="#sym-check"/></svg>Software de gestión técnica y reportes</li>
+          <li><svg><use href="#sym-check"/></svg>Programa técnico escrito por cliente</li>
+          <li><svg><use href="#sym-check"/></svg>Capacitación a trabajadores de tu organización</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="banda-chips rev">
+      <span class="chip">Convenio Mutual</span>
+      <span class="chip">Cert. Físico de Altura</span>
+      <span class="chip">Bodega de Químicos</span>
+      <span class="chip">Giro Trabajo en Altura</span>
+      <span class="chip">PPR al día</span>
+      <span class="chip">Capacitación Interna DS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIEMPOS ============ -->
+<section class="sec sec-tiempos parallax-sec"><img class="section-parallax-media" src="atta-assets/servicio-techumbres.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="kicker">Tiempos estimados</span>
+        <h2>Planificación <em>real</em> por faena</h2>
+        <div class="raya"></div>
+      </div>
+    </div>
+    <div class="grid-stats">
+      <div class="stat rev"><b>6<small> hrs</small></b><span>Visita técnica y evaluación</span></div>
+      <div class="stat rev"><b>1<small> día</small></b><span>Intervención estándar en copa de agua</span></div>
+      <div class="stat rev"><b>4<small> días</small></b><span>Proyecto de mantención integral</span></div>
+      <div class="stat rev"><b>25<small> m</small></b><span>Alcance de trabajo sin andamios</span></div>
+    </div>
+    <div class="noche rev">
+      <svg><use href="#sym-luna"/></svg>
+      <div>
+        <b>Turnos nocturnos disponibles</b>
+        <p>Trabajamos de noche para no detener la operación de tu empresa, colegio o comunidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="sec sec-contacto parallax-sec" id="contacto"><img class="section-parallax-media" src="atta-assets/servicio-luminarias.png" alt="" aria-hidden="true">
+  <div class="esquina esquina-br"></div>
+  <div class="wrap grid-cont">
+    <div class="rev">
+      <span class="kicker">Contacto</span>
+      <h2 style="font-family:var(--f-disp);font-weight:700;text-transform:uppercase;font-size:clamp(28px,3.4vw,42px);margin-top:12px">Coordinemos tu <span style="color:var(--naranja)">proyecto</span></h2>
+      <p class="tagline">Seguridad, experiencia y soluciones en altura.</p>
+      <div class="lineas-cont">
+        <div class="linea-cont">
+          <span class="ico-circ"><svg><use href="#sym-tel"/></svg></span>
+          <div><b>Teléfono / WhatsApp</b><a href="tel:+56987417915"><span>+56 9 8741 7915</span></a></div>
+        </div>
+        <div class="linea-cont">
+          <span class="ico-circ"><svg><use href="#sym-pin"/></svg></span>
+          <div><b>Base de operaciones</b><span>San Vicente de Tagua Tagua, Chile</span></div>
+        </div>
+        <div class="linea-cont">
+          <span class="ico-circ"><svg><use href="#sym-luna"/></svg></span>
+          <div><b>Cobertura y horarios</b><span>Zona central de Chile · turnos nocturnos por coordinación</span></div>
+        </div>
+      </div>
+      <a class="btn btn-n" href="https://wa.me/56987417915?text=Hola%20Nicol%C3%A1s%2C%20quiero%20cotizar%20un%20trabajo%20en%20altura." target="_blank" rel="noopener"><svg><use href="#sym-wsp"/></svg>Escribir ahora</a>
+    </div>
+
+    <form class="form-cont rev" id="formWsp">
+      <h3>Solicita tu cotización</h3>
+      <p>Completa los datos y envía directamente a nuestro WhatsApp técnico.</p>
+      <div class="campo">
+        <label for="fNombre">Nombre</label>
+        <input id="fNombre" type="text" placeholder="Tu nombre o razón social" required>
+      </div>
+      <div class="campo">
+        <label for="fTipo">Tipo de cliente</label>
+        <select id="fTipo">
+          <option>APR / Comité de agua</option>
+          <option>Condominio</option>
+          <option>Administración de edificios</option>
+          <option>Colegio</option>
+          <option>Viña / Viñedo</option>
+          <option>Industria / Bodega</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="fServ">Servicio de interés</label>
+        <select id="fServ">
+          <option>Trabajos en Altura</option>
+          <option>Limpieza de Copas de Agua</option>
+          <option>Montaje de Sistemas Anticaídas</option>
+          <option>Canaletas y Techos</option>
+          <option>Mantención y Pintura</option>
+          <option>Reparación Estructural</option>
+          <option>Luminarias</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="fMsg">Mensaje</label>
+        <textarea id="fMsg" placeholder="Cuéntanos brevemente la faena: ubicación, alturas, urgencia..."></textarea>
+      </div>
+      <button class="btn btn-n" type="submit" style="width:100%;justify-content:center"><svg><use href="#sym-wsp"/></svg>Enviar por WhatsApp</button>
+      <p class="form-nota">Respondemos con evaluación técnica y cotización dentro de 24 hrs hábiles.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <svg class="foot-mont"><use href="#sym-mont"/></svg>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img class="brand-lockup" src="atta-assets/atta-chile-logo.jpeg" alt="ATTA Chile · Asesoría Técnica y Trabajos en Altura">
+        </div>
+        <p class="foot-tag">Seguridad, experiencia y soluciones en altura.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="#servicios">Trabajos en Altura</a>
+        <a href="#servicios">Copas de Agua</a>
+        <a href="#servicios">Sistemas Anticaídas</a>
+        <a href="#servicios">Canaletas y Techos</a>
+        <a href="#servicios">Luminarias</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <a href="tel:+56987417915">+56 9 8741 7915</a>
+        <span>San Vicente de Tagua Tagua, Chile</span>
+        <a href="https://wa.me/56987417915" target="_blank" rel="noopener">WhatsApp técnico</a>
+        <a href="#respaldo">Respaldo empresarial</a>
+      </div>
+    </div>
+    <div class="foot-fin">
+      <span>© 2026 ATTA · Trabajos Técnicos en Altura</span>
+      <span>DEPAR · MANTENER · RENOVAR</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wsp-flot" href="https://wa.me/56987417915?text=Hola%20Nicol%C3%A1s%2C%20vengo%20de%20tu%20sitio%20web%20y%20quiero%20cotizar." target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#sym-wsp"/></svg></a>
+
+<script>
+/* ---------- CARRUSEL HERO ATTA ---------- */
+var heroSlides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+var heroDots = document.getElementById('heroDots');
+var heroAct = document.getElementById('heroAct');
+var heroIdx = 0, heroTimer;
+function irHero(i){ heroIdx=(i+heroSlides.length)%heroSlides.length; heroSlides.forEach(function(sl,k){sl.classList.toggle('act',k===heroIdx);}); document.querySelector('.hero').style.backgroundImage='linear-gradient(90deg,rgba(8,9,11,.95) 0%,rgba(8,9,11,.80) 42%,rgba(8,9,11,.35) 75%,rgba(8,9,11,.58) 100%),url('+heroSlides[heroIdx].dataset.image+')'; document.querySelector('.hero').style.backgroundSize='cover'; document.querySelector('.hero').style.backgroundPosition='center'; Array.prototype.slice.call(heroDots.children).forEach(function(d,k){d.classList.toggle('act',k===heroIdx);}); heroAct.textContent=('0'+(heroIdx+1)).slice(-2); }
+heroSlides.forEach(function(_,i){var b=document.createElement('button');b.className='hero-dot'+(i===0?' act':'');b.setAttribute('aria-label','Ver lámina '+(i+1));b.addEventListener('click',function(){irHero(i);reiniciarHero();});heroDots.appendChild(b);});
+function reiniciarHero(){clearInterval(heroTimer);heroTimer=setInterval(function(){irHero(heroIdx+1);},6200);}irHero(0);reiniciarHero();/* ---------- PARALLAX Y PROFUNDIDAD ---------- */
+var heroMagic = document.querySelector('.hero');
+var heroScene = document.querySelector('.hero-escena');
+function mueveHero(){ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; var r=heroMagic.getBoundingClientRect(); var progreso=Math.max(-1,Math.min(1,(window.innerHeight*.55-r.top)/window.innerHeight)); heroScene.style.setProperty('--hero-shift',(progreso*18)+'px'); heroMagic.style.backgroundPosition='center calc(50% + '+(progreso*12)+'px)'; }
+window.addEventListener('scroll',mueveHero,{passive:true}); mueveHero();
+document.querySelectorAll('.card-resp,.tarj-cli-in').forEach(function(card){ card.addEventListener('pointermove',function(e){ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; var b=card.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5; card.style.transform='perspective(700px) rotateX('+(-y*3)+'deg) rotateY('+(x*4)+'deg) translateY(-5px)'; }); card.addEventListener('pointerleave',function(){card.style.transform='';}); });/* ---------- PARALLAX EN RECORRIDO ---------- */
+var seccionesParallax=Array.prototype.slice.call(document.querySelectorAll('.parallax-sec'));
+function mueveSecciones(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return; var medio=window.innerHeight/2; seccionesParallax.forEach(function(sec){var r=sec.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;sec.style.setProperty('--section-shift',(d*34)+'px');}); document.querySelectorAll('.slide-ilus').forEach(function(el){var r=el.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;el.style.setProperty('--photo-parallax',(d*85)+'px');}); document.querySelectorAll('.section-parallax-media').forEach(function(img){var r=img.parentElement.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;img.style.setProperty('--media-parallax',(d*90)+'px');}); seccionesParallax.forEach(function(sec){var r=sec.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight; var head=sec.querySelector('.sec-head'); if(head)head.style.setProperty('--head-parallax',(d*14)+'px');});}
+window.addEventListener('scroll',mueveSecciones,{passive:true});mueveSecciones();/* ---------- NAV scroll ---------- */
+var navTop = document.getElementById('navTop');
+window.addEventListener('scroll', function(){
+  navTop.classList.toggle('solid', window.scrollY > 40);
+}, {passive:true});
+
+/* ---------- Menú móvil ---------- */
+var btnBurger = document.getElementById('btnBurger');
+var menuMov = document.getElementById('menuMov');
+btnBurger.addEventListener('click', function(){ menuMov.classList.toggle('open'); });
+menuMov.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click', function(){ menuMov.classList.remove('open'); });
+});
+
+/* ---------- CARRUSEL SERVICIOS ---------- */
+var pistaServ = document.getElementById('pistaServ');
+var slidesServ = Array.prototype.slice.call(pistaServ.children);
+var puntosServ = document.getElementById('puntosServ');
+var servAct = document.getElementById('servAct');
+var idxServ = 0;
+var totalServ = slidesServ.length;
+document.getElementById('servTot').textContent = ('0' + totalServ).slice(-2);
+
+slidesServ.forEach(function(_, i){
+  var b = document.createElement('button');
+  b.className = 'punto';
+  b.setAttribute('aria-label', 'Ir al servicio ' + (i+1));
+  b.addEventListener('click', function(){ irServ(i); reiniciarServ(); });
+  puntosServ.appendChild(b);
+});
+var puntosServArr = Array.prototype.slice.call(puntosServ.children);
+
+function irServ(i){
+  idxServ = (i + totalServ) % totalServ;
+  pistaServ.style.transform = 'translateX(-' + (idxServ * 100) + '%)';
+  puntosServArr.forEach(function(p, k){ p.classList.toggle('act', k === idxServ); });
+  servAct.textContent = ('0' + (idxServ + 1)).slice(-2);
+}
+document.getElementById('servPrev').addEventListener('click', function(){ irServ(idxServ - 1); reiniciarServ(); });
+document.getElementById('servNext').addEventListener('click', function(){ irServ(idxServ + 1); reiniciarServ(); });
+
+var timerServ = setInterval(function(){ irServ(idxServ + 1); }, 6500);
+function reiniciarServ(){ clearInterval(timerServ); timerServ = setInterval(function(){ irServ(idxServ + 1); }, 6500); }
+var carruselServ = document.getElementById('carruselServ');
+carruselServ.addEventListener('mouseenter', function(){ clearInterval(timerServ); });
+carruselServ.addEventListener('mouseleave', function(){ reiniciarServ(); });
+
+/* swipe táctil servicios */
+var vX = 0, vDown = false;
+var ventanaServ = document.getElementById('ventanaServ');
+ventanaServ.addEventListener('pointerdown', function(e){ vX = e.clientX; vDown = true; });
+window.addEventListener('pointerup', function(e){
+  if(!vDown) return; vDown = false;
+  var d = e.clientX - vX;
+  if(Math.abs(d) > 45){ irServ(idxServ + (d < 0 ? 1 : -1)); reiniciarServ(); }
+});
+irServ(0);
+
+/* ---------- CARRUSEL CLIENTES ---------- */
+var pistaCli = document.getElementById('pistaCli');
+var tarjCli = Array.prototype.slice.call(pistaCli.children);
+var puntosCli = document.getElementById('puntosCli');
+var idxCli = 0;
+
+function porVer(){
+  if(window.innerWidth < 680) return 1;
+  if(window.innerWidth < 1024) return 2;
+  return 3;
+}
+function maxCli(){ return Math.max(0, tarjCli.length - porVer()); }
+function ajustarCli(){
+  var pv = porVer();
+  tarjCli.forEach(function(t){ t.style.minWidth = (100 / pv) + '%'; });
+  puntosCli.innerHTML = '';
+  for(var i = 0; i <= maxCli(); i++){
+    (function(i){
+      var b = document.createElement('button');
+      b.className = 'punto';
+      b.setAttribute('aria-label', 'Ir a grupo ' + (i+1));
+      b.addEventListener('click', function(){ irCli(i); reiniciarCli(); });
+      puntosCli.appendChild(b);
+    })(i);
+  }
+  irCli(idxCli);
+}
+function irCli(i){
+  idxCli = Math.min(Math.max(i, 0), maxCli());
+  pistaCli.style.transform = 'translateX(-' + (idxCli * (100 / porVer())) + '%)';
+  Array.prototype.slice.call(puntosCli.children).forEach(function(p, k){ p.classList.toggle('act', k === idxCli); });
+}
+document.getElementById('cliPrev').addEventListener('click', function(){ irCli(idxCli - 1); reiniciarCli(); });
+document.getElementById('cliNext').addEventListener('click', function(){ irCli(idxCli + 1); reiniciarCli(); });
+var timerCli = setInterval(function(){ irCli(idxCli >= maxCli() ? 0 : idxCli + 1); }, 4200);
+function reiniciarCli(){ clearInterval(timerCli); timerCli = setInterval(function(){ irCli(idxCli >= maxCli() ? 0 : idxCli + 1); }, 4200); }
+var ventanaCli = document.getElementById('ventanaCli');
+ventanaCli.addEventListener('mouseenter', function(){ clearInterval(timerCli); });
+ventanaCli.addEventListener('mouseleave', function(){ reiniciarCli(); });
+window.addEventListener('resize', ajustarCli);
+ajustarCli();
+
+/* ---------- REVEAL ---------- */
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){ en.target.classList.add('vis'); obs.unobserve(en.target); }
+  });
+}, {threshold:.15});
+document.querySelectorAll('.rev').forEach(function(el){ obs.observe(el); });
+
+/* ---------- FORM -> WHATSAPP ---------- */
+document.getElementById('formWsp').addEventListener('submit', function(e){
+  e.preventDefault();
+  var nombre = document.getElementById('fNombre').value.trim() || 'Sin nombre';
+  var tipo = document.getElementById('fTipo').value;
+  var serv = document.getElementById('fServ').value;
+  var msg = document.getElementById('fMsg').value.trim();
+  var texto = 'Hola ATTA, soy ' + nombre + ' (' + tipo + ').\nMe interesa: ' + serv + '.' + (msg ? '\nDetalle: ' + msg : '');
+  window.open('https://wa.me/56987417915?text=' + encodeURIComponent(texto), '_blank');
+});
+</script>
+</body>
+</html>
