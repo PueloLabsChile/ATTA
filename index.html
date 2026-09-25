@@ -267,7 +267,8 @@ footer{background:#08090b;border-top:1px solid var(--linea);padding:56px 0 26px;
 #carruselServ{width:calc(100% - 84px);margin-inline:auto}.ctrl-lat.prev{left:-42px}.ctrl-lat.next{right:-42px}@media(max-width:900px){#carruselServ{width:100%}.ctrl-lat.prev{left:10px}.ctrl-lat.next{right:10px}}/* Alineación interior del contenido principal */
 .hero-carousel{padding-inline:64px}@media(max-width:900px){.hero-carousel{padding-inline:24px}}/* Cotización contextual por servicio */
 .serv-cta{display:inline-flex;align-items:center;gap:9px;margin-top:24px;color:#0b0c0e;background:var(--naranja);padding:11px 18px;font:600 13px var(--f-disp);letter-spacing:.12em;text-transform:uppercase;clip-path:polygon(7px 0,100% 0,calc(100% - 7px) 100%,0 100%);transition:filter .2s,transform .2s}.serv-cta:hover{filter:brightness(1.12);transform:translateY(-2px)}/* Microinteracción de respuesta por WhatsApp */
-.wsp-flot::before{content:'ATTA responde en hasta 24 h';position:absolute;right:0;bottom:72px;width:max-content;max-width:210px;padding:8px 11px;background:#fff;color:#1a1c20;border-radius:7px;font:600 11px var(--f-body);box-shadow:0 10px 25px rgba(0,0,0,.25);opacity:0;transform:translateY(7px);pointer-events:none;transition:.22s ease}.wsp-flot:hover::before,.wsp-flot:focus-visible::before{opacity:1;transform:none}@media(max-width:700px){.wsp-flot::before{display:none}}</style>
+.wsp-flot::before{content:'ATTA responde en hasta 24 h';position:absolute;right:0;bottom:72px;width:max-content;max-width:210px;padding:8px 11px;background:#fff;color:#1a1c20;border-radius:7px;font:600 11px var(--f-body);box-shadow:0 10px 25px rgba(0,0,0,.25);opacity:0;transform:translateY(7px);pointer-events:none;transition:.22s ease}.wsp-flot:hover::before,.wsp-flot:focus-visible::before{opacity:1;transform:none}@media(max-width:700px){.wsp-flot::before{display:none}}/* Galería editorial ATTA */
+.galeria-sec{background:linear-gradient(180deg,#0b0c0e,#13161a);overflow:hidden}.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:92px;gap:12px}.gal-item{position:relative;overflow:hidden;border:0;background:#15181d;cursor:zoom-in;grid-column:span 3;grid-row:span 2}.gal-item:nth-child(7n+1){grid-column:span 6;grid-row:span 4}.gal-item:nth-child(7n+2){grid-column:span 3;grid-row:span 3}.gal-item:nth-child(7n+3){grid-column:span 3;grid-row:span 3}.gal-item:nth-child(7n+4){grid-column:span 4;grid-row:span 3}.gal-item:nth-child(7n+5){grid-column:span 5;grid-row:span 3}.gal-item:nth-child(7n+6){grid-column:span 3;grid-row:span 3}.gal-item:nth-child(7n){grid-column:span 4;grid-row:span 3}.gal-item img{width:100%;height:100%;object-fit:cover;transform:scale(1.12) translate3d(0,var(--gal-shift,0px),0);transition:transform .5s cubic-bezier(.22,.61,.36,1),filter .4s ease;will-change:transform}.gal-item::after{content:'VER FAENA ↗';position:absolute;inset:0;display:grid;place-items:center;background:rgba(8,9,11,.64);color:#fff;font:600 13px var(--f-disp);letter-spacing:.2em;opacity:0;transition:opacity .3s}.gal-item:hover img{transform:scale(1.2) translate3d(0,var(--gal-shift,0px),0);filter:saturate(1.12)}.gal-item:hover::after,.gal-item:focus-visible::after{opacity:1}.gal-lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,6,8,.94);display:grid;place-items:center;padding:36px;opacity:0;visibility:hidden;transition:.25s}.gal-lightbox.open{opacity:1;visibility:visible}.gal-lightbox figure{margin:0;max-width:min(1100px,85vw);max-height:85vh;display:grid;gap:10px;justify-items:center}.gal-lightbox img{max-width:100%;max-height:78vh;object-fit:contain;box-shadow:0 24px 75px rgba(0,0,0,.6)}.gal-lightbox figcaption{font:500 13px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:#d9dde3}.gal-close,.gal-nav{position:absolute;border:0;background:transparent;color:#fff;cursor:pointer}.gal-close{right:25px;top:15px;font-size:42px;line-height:1}.gal-nav{top:50%;transform:translateY(-50%);font-size:70px;line-height:1;padding:15px}.gal-prev{left:20px}.gal-next{right:20px}@media(max-width:760px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:145px;gap:8px}.gal-item,.gal-item:nth-child(n){grid-column:span 1;grid-row:span 1}.gal-item:nth-child(5n+1){grid-column:span 2;grid-row:span 2}.gal-lightbox{padding:20px}.gal-lightbox figure{max-width:100%;max-height:82vh}.gal-nav{font-size:48px;padding:6px}.gal-prev{left:4px}.gal-next{right:4px}}@media(prefers-reduced-motion:reduce){.gal-item img{transform:scale(1)!important;transition:none}}</style>
 </head>
 <body>
 
@@ -367,6 +368,7 @@ footer{background:#08090b;border-top:1px solid var(--linea);padding:56px 0 26px;
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#clientes">Clientes</a>
+      <a href="#galeria">Galería</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <a class="nav-tel" href="tel:+56987417915"><svg><use href="#sym-tel"/></svg>+56 9 8741 7915</a>
@@ -377,6 +379,7 @@ footer{background:#08090b;border-top:1px solid var(--linea);padding:56px 0 26px;
   <a href="#inicio">Inicio</a>
   <a href="#servicios">Servicios</a>
   <a href="#clientes">Clientes</a>
+  <a href="#galeria">Galería</a>
   <a href="#contacto">Contacto</a>
   <a href="tel:+56987417915" style="color:var(--naranja)">+56 9 8741 7915</a>
 </div>
@@ -587,7 +590,47 @@ footer{background:#08090b;border-top:1px solid var(--linea);padding:56px 0 26px;
   </div>
 </section>
 
-<!-- ============ TIEMPOS ============ -->
+<!-- ============ GALERÍA ============ -->
+<section class="sec galeria-sec" id="galeria">
+  <div class="wrap">
+    <div class="sec-head rev"><div><span class="kicker">En terreno</span><h2>ATTA en <em>acción</em></h2><div class="raya"></div></div><p>Faenas reales, precisión técnica y compromiso en cada trabajo realizado en altura.</p></div>
+    <div class="gal-grid" id="galGrid">
+<button class="gal-item rev" type="button" data-gal-index="0" aria-label="Abrir fotografía 1"><img src="atta-assets/galeria/foto-01.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="1" aria-label="Abrir fotografía 2"><img src="atta-assets/galeria/foto-02.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="2" aria-label="Abrir fotografía 3"><img src="atta-assets/galeria/foto-03.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="3" aria-label="Abrir fotografía 4"><img src="atta-assets/galeria/foto-04.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="4" aria-label="Abrir fotografía 5"><img src="atta-assets/galeria/foto-05.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="5" aria-label="Abrir fotografía 6"><img src="atta-assets/galeria/foto-06.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="6" aria-label="Abrir fotografía 7"><img src="atta-assets/galeria/foto-07.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="7" aria-label="Abrir fotografía 8"><img src="atta-assets/galeria/foto-08.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="8" aria-label="Abrir fotografía 9"><img src="atta-assets/galeria/foto-09.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="9" aria-label="Abrir fotografía 10"><img src="atta-assets/galeria/foto-10.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="10" aria-label="Abrir fotografía 11"><img src="atta-assets/galeria/foto-11.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="11" aria-label="Abrir fotografía 12"><img src="atta-assets/galeria/foto-12.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="12" aria-label="Abrir fotografía 13"><img src="atta-assets/galeria/foto-13.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="13" aria-label="Abrir fotografía 14"><img src="atta-assets/galeria/foto-14.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="14" aria-label="Abrir fotografía 15"><img src="atta-assets/galeria/foto-15.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="15" aria-label="Abrir fotografía 16"><img src="atta-assets/galeria/foto-16.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="16" aria-label="Abrir fotografía 17"><img src="atta-assets/galeria/foto-17.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="17" aria-label="Abrir fotografía 18"><img src="atta-assets/galeria/foto-18.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="18" aria-label="Abrir fotografía 19"><img src="atta-assets/galeria/foto-19.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="19" aria-label="Abrir fotografía 20"><img src="atta-assets/galeria/foto-20.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="20" aria-label="Abrir fotografía 21"><img src="atta-assets/galeria/foto-21.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="21" aria-label="Abrir fotografía 22"><img src="atta-assets/galeria/foto-22.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="22" aria-label="Abrir fotografía 23"><img src="atta-assets/galeria/foto-23.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="23" aria-label="Abrir fotografía 24"><img src="atta-assets/galeria/foto-24.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="24" aria-label="Abrir fotografía 25"><img src="atta-assets/galeria/foto-25.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="25" aria-label="Abrir fotografía 26"><img src="atta-assets/galeria/foto-26.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="26" aria-label="Abrir fotografía 27"><img src="atta-assets/galeria/foto-27.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="27" aria-label="Abrir fotografía 28"><img src="atta-assets/galeria/foto-28.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="28" aria-label="Abrir fotografía 29"><img src="atta-assets/galeria/foto-29.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+<button class="gal-item rev" type="button" data-gal-index="29" aria-label="Abrir fotografía 30"><img src="atta-assets/galeria/foto-30.jpg" alt="Trabajo técnico en altura ATTA" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+<div class="gal-lightbox" id="galLightbox" aria-hidden="true" role="dialog" aria-label="Visor de fotografías">
+  <button class="gal-close" type="button" aria-label="Cerrar galería">×</button><button class="gal-nav gal-prev" type="button" aria-label="Anterior">‹</button><figure><img id="galFoto" src="" alt=""><figcaption id="galCaption"></figcaption></figure><button class="gal-nav gal-next" type="button" aria-label="Siguiente">›</button>
+</div><!-- ============ TIEMPOS ============ -->
 <section class="sec sec-tiempos parallax-sec"><img class="section-parallax-media" src="atta-assets/servicio-techumbres.png" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="sec-head rev">
@@ -729,7 +772,12 @@ window.addEventListener('scroll',mueveHero,{passive:true}); mueveHero();
 document.querySelectorAll('.card-resp,.tarj-cli-in').forEach(function(card){ card.addEventListener('pointermove',function(e){ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; var b=card.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5; card.style.transform='perspective(700px) rotateX('+(-y*3)+'deg) rotateY('+(x*4)+'deg) translateY(-5px)'; }); card.addEventListener('pointerleave',function(){card.style.transform='';}); });/* ---------- PARALLAX EN RECORRIDO ---------- */
 var seccionesParallax=Array.prototype.slice.call(document.querySelectorAll('.parallax-sec'));
 function mueveSecciones(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return; var medio=window.innerHeight/2; seccionesParallax.forEach(function(sec){var r=sec.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;sec.style.setProperty('--section-shift',(d*34)+'px');}); document.querySelectorAll('.slide-ilus').forEach(function(el){var r=el.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;el.style.setProperty('--photo-parallax',(d*85)+'px');}); document.querySelectorAll('.section-parallax-media').forEach(function(img){var r=img.parentElement.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;img.style.setProperty('--media-parallax',(d*90)+'px');}); seccionesParallax.forEach(function(sec){var r=sec.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight; var head=sec.querySelector('.sec-head'); if(head)head.style.setProperty('--head-parallax',(d*14)+'px');});}
-window.addEventListener('scroll',mueveSecciones,{passive:true});mueveSecciones();/* ---------- NAV scroll ---------- */
+window.addEventListener('scroll',mueveSecciones,{passive:true});mueveSecciones();/* ---------- GALERÍA ATTA ---------- */
+var galItems=Array.prototype.slice.call(document.querySelectorAll('.gal-item')),galLightbox=document.getElementById('galLightbox'),galFoto=document.getElementById('galFoto'),galCaption=document.getElementById('galCaption'),galActual=0;
+function abrirGaleria(i){galActual=(i+galItems.length)%galItems.length;var img=galItems[galActual].querySelector('img');galFoto.src=img.src;galFoto.alt=img.alt;galCaption.textContent='Faena ATTA · '+('0'+(galActual+1)).slice(-2)+' / '+('0'+galItems.length).slice(-2);galLightbox.classList.add('open');galLightbox.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+function cerrarGaleria(){galLightbox.classList.remove('open');galLightbox.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+galItems.forEach(function(item,i){item.addEventListener('click',function(){abrirGaleria(i);});});document.querySelector('.gal-close').addEventListener('click',cerrarGaleria);document.querySelector('.gal-prev').addEventListener('click',function(){abrirGaleria(galActual-1);});document.querySelector('.gal-next').addEventListener('click',function(){abrirGaleria(galActual+1);});galLightbox.addEventListener('click',function(e){if(e.target===galLightbox)cerrarGaleria();});window.addEventListener('keydown',function(e){if(!galLightbox.classList.contains('open'))return;if(e.key==='Escape')cerrarGaleria();if(e.key==='ArrowLeft')abrirGaleria(galActual-1);if(e.key==='ArrowRight')abrirGaleria(galActual+1);});
+function mueveGaleria(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;var medio=window.innerHeight/2;galItems.forEach(function(item){var r=item.getBoundingClientRect();var d=(medio-(r.top+r.height/2))/window.innerHeight;item.style.setProperty('--gal-shift',(d*28)+'px');});}window.addEventListener('scroll',mueveGaleria,{passive:true});mueveGaleria();/* ---------- NAV scroll ---------- */
 var navTop = document.getElementById('navTop');
 window.addEventListener('scroll', function(){
   navTop.classList.toggle('solid', window.scrollY > 40);
